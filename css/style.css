@@ -165,7 +165,7 @@ h1, h2, h3, h4 {
 .main-nav a:hover { color: var(--color-orange); }
 
 .header-cta { display: flex; align-items: center; gap: 16px; }
-.header-cta .btn { padding: 15px 29px; font-size: 19px; }
+.header-cta .btn { padding: 10px 24px; font-size: 14px; }
 
 .nav-toggle {
   display: none;
