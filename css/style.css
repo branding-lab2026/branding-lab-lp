@@ -845,7 +845,7 @@ h1, h2, h3, h4 {
   display: flex; justify-content: center; gap: 24px;
   font-size: 18px; margin-bottom: 25px; flex-wrap: wrap;
 }
-.site-footer .copyright { font-size: 17px; color: rgba(255,255,255,0.5); }
+.site-footer .copyright { font-size: 12px; color: rgba(255,255,255,0.5); }
 
 /* ===== Responsive ===== */
 @media (max-width: 960px) {
@@ -940,12 +940,12 @@ h1, h2, h3, h4 {
   .faq-item .faq-answer { font-size: 21px; padding: 0 27px 27px; }
   .final-cta h2 { font-size: 31px; }
   .final-cta p { font-size: 22px; }
-  .main-nav.open a { font-size: 16px; padding: 23px 0; }
+  .main-nav.open a { font-size: 16px; padding: 18px 0; }
   .main-nav.open .nav-apply-mobile a { font-size: 23px; padding: 23px; }
 }
 
 /* Mobile nav drawer */
-.nav-apply-mobile { display: none; }
+.nav-apply-mobile, .nav-contact-mobile { display: none; }
 .main-nav.open {
   display: block;
   position: fixed;
@@ -958,7 +958,7 @@ h1, h2, h3, h4 {
 }
 .main-nav.open ul { flex-direction: column; gap: 0; }
 .main-nav.open li { border-bottom: 1px solid #F0F0F0; }
-.main-nav.open a { display: block; padding: 21px 0; font-size: 16px; }
+.main-nav.open a { display: block; padding: 16px 0; font-size: 16px; }
 .main-nav.open .nav-apply-mobile {
   display: block;
   border-bottom: none;
@@ -970,5 +970,19 @@ h1, h2, h3, h4 {
   text-align: center;
   border-radius: 4px;
   padding: 16px;
+  font-weight: 700;
+}
+.main-nav.open .nav-contact-mobile {
+  display: block;
+  border-bottom: none;
+  margin-top: 10px;
+}
+.main-nav.open .nav-contact-mobile a {
+  background: #fff;
+  color: var(--color-teal-dark);
+  border: 2px solid var(--color-teal);
+  text-align: center;
+  border-radius: 4px;
+  padding: 14px;
   font-weight: 700;
 }
