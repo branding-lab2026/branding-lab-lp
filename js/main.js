@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', function () {
   if (header) {
     header.addEventListener('click', function (e) {
       if (e.target === header || e.target === header.querySelector('.container')) {
+        if (window.location.hash) {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
     });
