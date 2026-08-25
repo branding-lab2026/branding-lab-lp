@@ -2,6 +2,9 @@
 
 ひろしまCamps × FICC「ブランディング未来創造ラボ FY26」の申込ページ(ランディングページ)です。
 
+**公開URL**: https://branding-lab2026.github.io/branding-lab-lp/
+**リポジトリ**: https://github.com/branding-lab2026/branding-lab-lp
+
 ## フォルダの中身
 
 ```
@@ -26,23 +29,18 @@ powershell -ExecutionPolicy Bypass -File serve.ps1
 3. ブラウザで `http://localhost:8080/` を開く
 4. 確認が終わったら、PowerShellの画面で `Ctrl + C` を押して停止する
 
-## GitHubページで公開する手順
+## 修正を公開に反映する手順
 
-1. https://github.com にログイン(ユーザー名: `ray3714jmkagi-debug`)
-2. 右上の「+」→「New repository」をクリック
-3. Repository name に `branding-lab-lp` など好きな名前を入れて「Create repository」
-4. 作成後の画面に出るコマンドは使わず、Claude Codeから以下の要領でアップロードします(この後、担当者と一緒に実施します)
-   - このフォルダの中身一式をそのリポジトリにアップロード(push)
-   - リポジトリの Settings → Pages → Branch を `main` / `/(root)` に設定
-   - 数分後、`https://ray3714jmkagi-debug.github.io/branding-lab-lp/` のようなURLで公開されます
+このフォルダで修正した後、以下を実行すると数分後に公開ページに反映されます。
 
-※このステップは実際にpushするタイミングでもう一度サポートします。
+```bash
+git add -A
+git commit -m "変更内容のメモ"
+git push
+```
 
 ## 後で必ずやること(TODO)
 
-- [ ] `index.html` 内の「お問い合わせ」ボタン(ヘッダー右上・右下フローティング・フッター)にある
-      `mailto:rei.okamoto@lt-s.jp` を、問い合わせ用GoogleフォームができたらそちらのURLに差し替える
-      (`index.html` 内で `TODO` とコメントしている3箇所)
 - [ ] 独自ドメインを取得した場合は、`CNAME` というファイルを追加する(取得時にサポートします)
 
 ## 使用素材の出典
