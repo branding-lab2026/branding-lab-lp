@@ -639,6 +639,22 @@ h1, h2, h3, h4 {
 .achievement-item strong { color: var(--color-orange-dark); font-size: 15px; }
 
 /* ===== 開催スケジュール（横タイムライン） ===== */
+.scroll-hint {
+  display: none;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-teal-dark);
+  margin: -8px 0 8px;
+}
+.scroll-hint-arrow {
+  display: inline-block;
+  animation: scrollHintMove 1.2s ease-in-out infinite;
+}
+@keyframes scrollHintMove {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(6px); }
+}
 .timeline-scroll { overflow-x: auto; padding-bottom: 12px; }
 .timeline {
   display: flex;
@@ -831,6 +847,7 @@ h1, h2, h3, h4 {
 
 /* ===== Responsive ===== */
 @media (max-width: 960px) {
+  .scroll-hint { display: block; }
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-6 { grid-template-columns: repeat(3, 1fr); }
   .voice-grid { grid-template-columns: repeat(2, 1fr); }
