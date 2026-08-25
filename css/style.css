@@ -147,7 +147,7 @@ h1, h2, h3, h4 {
   gap: 10px;
 }
 .brand-logos img { height: 22px; width: auto; }
-.brand-logos .camps-logo-img { height: 34px; }
+.brand-logos .camps-logo-img { height: 46px; }
 .brand-logos .x { color: var(--color-gray); font-size: 19px; }
 
 .main-nav ul {
@@ -215,7 +215,7 @@ h1, h2, h3, h4 {
   margin-bottom: 22px;
 }
 .eyebrow-logos img { height: 26px; width: auto; }
-.eyebrow-logos img:first-child { height: 42px; }
+.eyebrow-logos img:first-child { height: 56px; }
 .eyebrow-logos .x { color: #fff; font-size: 20px; opacity: 0.8; }
 .hero h1 {
   font-size: clamp(33px, 5vw, 51px);
@@ -841,6 +841,7 @@ h1, h2, h3, h4 {
   margin-bottom: 20px;
 }
 .site-footer .footer-logos img { height: 24px; }
+.site-footer .footer-logos img:first-child { height: 42px; }
 .site-footer .footer-links {
   display: flex; justify-content: center; gap: 24px;
   font-size: 18px; margin-bottom: 25px; flex-wrap: wrap;
@@ -887,7 +888,7 @@ h1, h2, h3, h4 {
   .hero p.lead { font-size: 23px; }
   .hero .program-name { font-size: 27px; }
   .eyebrow-logos img { height: 30px; }
-  .eyebrow-logos img:first-child { height: 48px; }
+  .eyebrow-logos img:first-child { height: 58px; }
   .deadline-badge { padding: 21px 25px; }
   .deadline-badge .deadline-main { font-size: 22px; }
   .deadline-badge .deadline-note { font-size: 14px; }
