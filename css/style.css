@@ -859,49 +859,68 @@ h1, h2, h3, h4 {
   .bm-divider { width: 60%; height: 1px; align-self: center; }
   .final-cta { margin: 0 12px; padding: 40px 20px; }
 
-  /* 文字サイズ・オブジェクトを全体的に拡大 */
-  body { font-size: 17px; }
-  .section-title { font-size: 26px; }
-  .section-lead { font-size: 16px; }
-  .hero p.lead { font-size: 17px; }
-  .hero .program-name { font-size: 20px; }
-  .deadline-badge { font-size: 15px; padding: 14px 18px; }
-  .chip { padding: 18px 16px; min-width: 140px; }
-  .chip .chip-label { font-size: 13px; }
-  .chip .chip-value { font-size: 17px; }
-  .btn { font-size: 17px; padding: 18px 30px; }
-  .worry-card p { font-size: 16px; }
-  .capability-card h3 { font-size: 18px; }
-  .capability-card .examples { font-size: 14.5px; }
-  .flow-card h3 { font-size: 19px; }
-  .flow-card p { font-size: 15px; }
-  .step-item .step-label { font-size: 15px; }
-  .bm-title { font-size: 24px; }
-  .bm-sub { font-size: 15px; }
-  .ficc-desc { font-size: 16px; }
-  .gallery-card h3 { font-size: 16.5px; }
-  .gallery-card p { font-size: 14.5px; }
-  .survey-card h3 { font-size: 16.5px; }
-  .legend-item { font-size: 14.5px; }
-  .change-card h3 { font-size: 18px; }
-  .change-card p { font-size: 15px; }
-  .theme-card p { font-size: 14.5px; }
-  .voice-card p.voice-text { font-size: 15px; }
-  .achievement-item h3 { font-size: 16px; }
-  .achievement-item p { font-size: 14.5px; }
-  .achievement-item strong { font-size: 17px; }
-  .timeline-item .t-name { font-size: 15px; }
-  .timeline-item .t-date { font-size: 14px; }
-  .timeline-item .t-time { font-size: 13px; }
-  .instructor-card h3 { font-size: 19px; }
-  .instructor-card .role { font-size: 14px; }
-  .instructor-card p.bio { font-size: 14px; }
-  .overview-list .label { font-size: 15px; }
-  .overview-list .value { font-size: 15px; }
-  .faq-item summary { font-size: 15.5px; padding: 18px 20px; }
-  .faq-item .faq-answer { font-size: 15px; }
-  .final-cta h2 { font-size: 24px; }
-  .final-cta p { font-size: 16px; }
+  /* 文字サイズ・オブジェクトを全体的に拡大(第2弾) */
+  body { font-size: 19px; }
+  section { padding: 64px 0; }
+  .section-title { font-size: 32px; }
+  .section-lead { font-size: 17px; }
+  .hero h1 { font-size: 34px; }
+  .hero p.lead { font-size: 18px; }
+  .hero .program-name { font-size: 22px; }
+  .eyebrow-logos img { height: 30px; }
+  .eyebrow-logos img:first-child { height: 48px; }
+  .deadline-badge { font-size: 16px; padding: 16px 20px; }
+  .chip { padding: 22px 18px; min-width: 155px; }
+  .chip .chip-label { font-size: 14px; }
+  .chip .chip-value { font-size: 19px; }
+  .btn { font-size: 18px; padding: 20px 34px; }
+  .worry-card { padding: 36px 24px; }
+  .worry-card p { font-size: 17px; }
+  .capability-card h3 { font-size: 19px; }
+  .capability-card .examples { font-size: 15.5px; }
+  .capability-card .icon-circle { width: 52px; height: 52px; font-size: 16px; }
+  .flow-card h3 { font-size: 21px; }
+  .flow-card p { font-size: 16px; }
+  .flow-card .tag { font-size: 13px; padding: 6px 16px; }
+  .step-circle { width: 64px; height: 64px; font-size: 26px; }
+  .step-item .step-label { font-size: 16px; }
+  .bm-title { font-size: 26px; }
+  .bm-sub { font-size: 16px; }
+  .ficc-desc { font-size: 17px; }
+  .gallery-card h3 { font-size: 17.5px; }
+  .gallery-card p { font-size: 15.5px; }
+  .survey-card h3 { font-size: 17.5px; }
+  .donut-wrap { width: 200px; height: 200px; }
+  .donut-hole .big { font-size: 30px; }
+  .legend-item { font-size: 15.5px; }
+  .change-card { padding: 34px 22px; }
+  .change-card h3 { font-size: 19px; }
+  .change-card p { font-size: 16px; }
+  .theme-card { padding: 24px 12px; }
+  .theme-card p { font-size: 15.5px; }
+  .voice-card p.voice-text { font-size: 16px; }
+  .achievement-item { padding: 26px 28px; }
+  .achievement-item h3 { font-size: 17px; }
+  .achievement-item p { font-size: 15.5px; }
+  .achievement-item strong { font-size: 18px; }
+  .timeline-item .t-name { font-size: 16px; }
+  .timeline-item .t-date { font-size: 15px; }
+  .timeline-item .t-time { font-size: 14px; }
+  .timeline-dot { width: 34px; height: 34px; font-size: 14px; }
+  .instructor-card { padding: 30px; }
+  .instructor-card img { width: 128px; height: 128px; }
+  .instructor-card h3 { font-size: 20px; }
+  .instructor-card .role { font-size: 15px; }
+  .instructor-card p.bio { font-size: 15px; }
+  .overview-list li { padding: 22px 0 22px 16px; }
+  .overview-list .label { font-size: 16px; }
+  .overview-list .value { font-size: 16px; }
+  .faq-item summary { font-size: 16.5px; padding: 20px 22px; }
+  .faq-item .faq-answer { font-size: 16px; padding: 0 22px 22px; }
+  .final-cta h2 { font-size: 26px; }
+  .final-cta p { font-size: 17px; }
+  .main-nav.open a { font-size: 18px; padding: 18px 0; }
+  .main-nav.open .nav-apply-mobile a { font-size: 18px; padding: 18px; }
 }
 
 /* Mobile nav drawer */

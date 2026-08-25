@@ -13,4 +13,13 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     });
   }
+
+  var header = document.querySelector('.site-header');
+  if (header) {
+    header.addEventListener('click', function (e) {
+      if (e.target === header || e.target === header.querySelector('.container')) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+  }
 });
