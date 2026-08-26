@@ -290,7 +290,7 @@ h1, h2, h3, h4 {
   padding: 35px 25px;
   text-align: center;
 }
-.worry-card .icon { font-size: 35px; margin-bottom: 19px; }
+.worry-card .card-icon { width: 40px; height: 40px; color: var(--color-orange); margin: 0 auto 16px; display: block; }
 .worry-card p { font-weight: 700; font-size: 20px; margin: 0; }
 
 .note-footer {
@@ -315,17 +315,15 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow-soft);
 }
 .capability-card .icon-circle {
-  width: 49px; height: 49px;
+  width: 56px; height: 56px;
   border-radius: 50%;
   background: none;
   border: 2px solid var(--color-orange);
   display: flex; align-items: center; justify-content: center;
   margin: 0 auto 16px;
-  font-family: var(--font-heading);
-  font-size: 19px;
-  font-weight: 700;
   color: var(--color-orange-dark);
 }
+.capability-card .icon-circle .card-icon { width: 26px; height: 26px; }
 .capability-card h3 {
   font-size: 21px;
   line-height: 1.4;
@@ -914,7 +912,9 @@ h1, h2, h3, h4 {
   .worry-card p { font-size: 22px; }
   .capability-card h3 { font-size: 24px; }
   .capability-card .examples { font-size: 20.5px; }
-  .capability-card .icon-circle { width: 57px; height: 57px; font-size: 21px; }
+  .capability-card .icon-circle { width: 62px; height: 62px; }
+  .capability-card .icon-circle .card-icon { width: 30px; height: 30px; }
+  .worry-card .card-icon { width: 44px; height: 44px; }
   .flow-card h3 { font-size: 26px; }
   .flow-card p { font-size: 21px; }
   .flow-card .tag { font-size: 18px; padding: 11px 21px; }
