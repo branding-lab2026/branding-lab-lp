@@ -147,6 +147,7 @@ h1, h2, h3, h4 {
   gap: 10px;
 }
 .brand-logos img { height: 22px; width: auto; }
+.header-logo-home { cursor: pointer; }
 .brand-logos .camps-logo-img { height: 46px; }
 .brand-logos .x { color: var(--color-gray); font-size: 19px; }
 
