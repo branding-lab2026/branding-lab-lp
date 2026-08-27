@@ -823,10 +823,32 @@ h1, h2, h3, h4 {
 }
 .overview-list { list-style: none; margin: 0; padding: 0; }
 .overview-list li {
-  padding: 23px 0 23px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 0;
   border-bottom: 1px solid #ECEFF1;
-  border-left: 3px solid var(--color-teal-light);
 }
+.overview-icon {
+  flex: none;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--color-icon-peach);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--color-orange-dark);
+}
+.overview-icon .mask-icon { width: 20px; height: 20px; background-color: var(--color-orange-dark); }
+.overview-icon-yen { font-family: var(--font-heading); font-weight: 700; font-size: 20px; }
+.chip-yen {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--color-icon-peach);
+  color: var(--color-orange-dark);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+  margin: 0 auto 10px;
+}
+.final-cta-chips { margin-bottom: 28px; }
 
 .map-embed {
   position: relative;
@@ -908,6 +930,12 @@ h1, h2, h3, h4 {
 }
 .site-footer .footer-logos img { height: 24px; }
 .site-footer .footer-logos img:first-child { height: 42px; }
+.site-footer .footer-tagline {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.55);
+  margin: -8px 0 24px;
+}
 .site-footer .footer-links {
   display: flex; justify-content: center; gap: 24px;
   font-size: 18px; margin-bottom: 25px; flex-wrap: wrap;
@@ -1030,7 +1058,9 @@ h1, h2, h3, h4 {
   .instructor-card h3 { font-size: 25px; }
   .instructor-card .role { font-size: 20px; }
   .instructor-card p.bio { font-size: 20px; }
-  .overview-list li { padding: 22px 0 22px 16px; }
+  .overview-list li { padding: 22px 0; }
+  .overview-icon { width: 50px; height: 50px; }
+  .overview-icon .mask-icon { width: 24px; height: 24px; }
   .overview-list .label { font-size: 21px; }
   .overview-list .value { font-size: 21px; }
   .faq-item summary { font-size: 21.5px; padding: 25px 27px; }
