@@ -291,7 +291,19 @@ h1, h2, h3, h4 {
   padding: 35px 25px;
   text-align: center;
 }
-.worry-card .card-icon { width: 40px; height: 40px; color: var(--color-orange); margin: 0 auto 16px; display: block; }
+.mask-icon {
+  display: block;
+  background-color: var(--color-orange);
+  -webkit-mask-image: var(--icon-url);
+  mask-image: var(--icon-url);
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+.worry-card .mask-icon { width: 40px; height: 40px; margin: 0 auto 16px; }
 .worry-card p { font-weight: 700; font-size: 20px; margin: 0; }
 
 .note-footer {
@@ -324,7 +336,7 @@ h1, h2, h3, h4 {
   margin: 0 auto 16px;
   color: var(--color-orange-dark);
 }
-.capability-card .icon-circle .card-icon { width: 26px; height: 26px; }
+.capability-card .icon-circle .mask-icon { width: 26px; height: 26px; }
 .capability-card h3 {
   font-size: 21px;
   line-height: 1.4;
@@ -413,6 +425,8 @@ h1, h2, h3, h4 {
   margin: 0 auto 12px;
 }
 .step-item:nth-child(odd) .step-circle { background: var(--color-orange); }
+.step-icon { width: 28px; height: 28px; background-color: #fff; }
+.step-num { font-family: var(--font-heading); font-weight: 700; font-size: 13px; color: var(--color-gray); margin-bottom: 4px; }
 .step-item .step-label { font-weight: 700; font-size: 19px; }
 
 /* ===== なぜFICCなのか ===== */
@@ -914,12 +928,14 @@ h1, h2, h3, h4 {
   .capability-card h3 { font-size: 24px; }
   .capability-card .examples { font-size: 20.5px; }
   .capability-card .icon-circle { width: 62px; height: 62px; }
-  .capability-card .icon-circle .card-icon { width: 30px; height: 30px; }
-  .worry-card .card-icon { width: 44px; height: 44px; }
+  .capability-card .icon-circle .mask-icon { width: 30px; height: 30px; }
+  .worry-card .mask-icon { width: 44px; height: 44px; }
   .flow-card h3 { font-size: 26px; }
   .flow-card p { font-size: 21px; }
   .flow-card .tag { font-size: 18px; padding: 11px 21px; }
-  .step-circle { width: 69px; height: 69px; font-size: 31px; }
+  .step-circle { width: 69px; height: 69px; }
+  .step-icon { width: 32px; height: 32px; }
+  .step-num { font-size: 15px; }
   .step-item .step-label { font-size: 21px; }
   .bm-title { font-size: 31px; }
   .bm-sub { font-size: 21px; }
