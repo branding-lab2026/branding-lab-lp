@@ -273,7 +273,7 @@ h1, h2, h3, h4 {
   min-width: 150px;
   text-align: center;
 }
-.chip .chip-icon { font-size: 27px; margin-bottom: 11px; }
+.chip .mask-icon.chip-icon { width: 24px; height: 24px; margin: 0 auto 10px; }
 .chip .chip-label { font-size: 17px; color: var(--color-gray); margin-bottom: 9px; }
 .chip .chip-value { font-weight: 700; font-size: 20px; }
 
@@ -327,35 +327,17 @@ h1, h2, h3, h4 {
   text-align: center;
   box-shadow: var(--shadow-soft);
 }
-.capability-card .icon-circle {
-  width: 56px; height: 56px;
-  border-radius: 50%;
-  background: none;
-  border: 2px solid var(--color-orange);
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 16px;
-  color: var(--color-orange-dark);
-}
-.capability-card .icon-circle .mask-icon { width: 26px; height: 26px; }
+.capability-card .cap-icon { width: 48px; height: 48px; margin: 0 auto 18px; }
 .capability-card h3 {
   font-size: 21px;
   line-height: 1.4;
-  min-height: 4.2em;
+  min-height: 2.8em;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
-.capability-card .example-tag {
-  display: inline-block;
-  font-size: 16px;
-  color: var(--color-teal-dark);
-  background: var(--color-bg-soft2);
-  padding: 8px 15px;
-  border-radius: 4px;
-  margin-bottom: 10px;
-}
-.capability-card .examples { font-size: 18px; color: var(--color-gray); }
+.capability-card .cap-desc { font-size: 16px; color: var(--color-gray); margin: 0; }
 
 /* ===== プログラム全体像 ===== */
 .program-flow {
@@ -405,29 +387,49 @@ h1, h2, h3, h4 {
 /* ===== 実際にどう進む? ===== */
 .step-flow {
   display: flex;
-  justify-content: space-between;
-  gap: 8px;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
   flex-wrap: wrap;
 }
 .step-item {
-  flex: 1 1 140px;
+  flex: 1 1 130px;
+  max-width: 150px;
   text-align: center;
 }
+.step-circle-wrap { position: relative; width: fit-content; margin: 0 auto 14px; }
+.step-num {
+  position: absolute;
+  top: -6px; left: -6px;
+  z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--color-teal);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 11px;
+  color: var(--color-teal-dark);
+}
 .step-circle {
-  width: 61px; height: 61px;
+  width: 68px; height: 68px;
   border-radius: 50%;
   background: var(--color-teal);
-  color: #fff;
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-heading);
-  font-size: 27px;
-  font-weight: 700;
-  margin: 0 auto 12px;
 }
-.step-item:nth-child(odd) .step-circle { background: var(--color-orange); }
-.step-icon { width: 28px; height: 28px; background-color: #fff; }
-.step-num { font-family: var(--font-heading); font-weight: 700; font-size: 13px; color: var(--color-gray); margin-bottom: 4px; }
-.step-item .step-label { font-weight: 700; font-size: 19px; }
+.step-c2 .step-circle { background: var(--color-orange); }
+.step-c2 .step-num { border-color: var(--color-orange); color: var(--color-orange-dark); }
+.step-icon { width: 30px; height: 30px; background-color: #fff; }
+.step-item .step-label { font-weight: 700; font-size: 17px; margin-bottom: 6px; }
+.step-item .step-desc { font-size: 13px; color: var(--color-gray); margin: 0; line-height: 1.6; }
+.step-arrow {
+  align-self: center;
+  margin-top: 34px;
+  font-size: 20px;
+  color: #C7D0D4;
+  flex: none;
+}
 
 /* ===== なぜFICCなのか ===== */
 .bm-columns {
@@ -896,8 +898,8 @@ h1, h2, h3, h4 {
   .gallery-grid { grid-template-columns: 1fr; }
   .voice-grid { grid-template-columns: 1fr; }
   .step-flow-scroll { overflow-x: auto; padding-bottom: 12px; }
-  .step-flow { min-width: 640px; }
-  .step-item { flex: none; width: 100px; }
+  .step-flow { min-width: 1080px; }
+  .step-item { flex: none; width: 150px; max-width: none; }
   .bm-columns {
     flex-direction: column;
     gap: 20px;
@@ -926,17 +928,18 @@ h1, h2, h3, h4 {
   .worry-card { padding: 36px 24px; }
   .worry-card p { font-size: 22px; }
   .capability-card h3 { font-size: 24px; }
-  .capability-card .examples { font-size: 20.5px; }
-  .capability-card .icon-circle { width: 62px; height: 62px; }
-  .capability-card .icon-circle .mask-icon { width: 30px; height: 30px; }
+  .capability-card .cap-desc { font-size: 20.5px; }
+  .capability-card .cap-icon { width: 54px; height: 54px; }
   .worry-card .mask-icon { width: 44px; height: 44px; }
   .flow-card h3 { font-size: 26px; }
   .flow-card p { font-size: 21px; }
   .flow-card .tag { font-size: 18px; padding: 11px 21px; }
-  .step-circle { width: 69px; height: 69px; }
-  .step-icon { width: 32px; height: 32px; }
-  .step-num { font-size: 15px; }
+  .step-circle { width: 74px; height: 74px; }
+  .step-icon { width: 34px; height: 34px; }
+  .step-num { width: 30px; height: 30px; font-size: 13px; }
   .step-item .step-label { font-size: 21px; }
+  .step-item .step-desc { font-size: 15px; }
+  .step-arrow { font-size: 24px; margin-top: 38px; }
   .bm-title { font-size: 31px; }
   .bm-sub { font-size: 21px; }
   .ficc-desc { font-size: 22px; }
