@@ -309,7 +309,7 @@ h1, h2, h3, h4 {
   mask-position: center;
 }
 .icon-circle {
-  width: 76px; height: 76px;
+  width: 96px; height: 96px;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   margin: 0 auto 20px;
@@ -319,7 +319,7 @@ h1, h2, h3, h4 {
 .flow-icon { width: 28px; height: 28px; background-color: var(--color-orange-dark); }
 .flow-icon-blue { background-color: var(--color-teal-dark); }
 .flow-card .icon-circle { width: 60px; height: 60px; margin: 0 auto 14px; }
-.worry-card .icon-circle .mask-icon { width: 34px; height: 34px; }
+.worry-card .icon-circle .mask-icon { width: 42px; height: 42px; }
 .worry-card p { font-weight: 700; font-size: 20px; margin: 0; }
 .worry-card .recommend-title { font-size: 18px; margin-bottom: 10px; }
 .worry-card .recommend-desc { font-size: 14px; font-weight: 400; color: var(--color-gray); line-height: 1.7; }
@@ -1017,9 +1017,9 @@ h1, h2, h3, h4 {
   .worry-card p { font-size: 22px; }
   .capability-card h3 { font-size: 24px; }
   .capability-card .cap-desc { font-size: 20.5px; }
-  .icon-circle { width: 84px; height: 84px; }
-  .capability-card .icon-circle .cap-icon { width: 36px; height: 36px; }
-  .worry-card .icon-circle .mask-icon { width: 38px; height: 38px; }
+  .icon-circle { width: 104px; height: 104px; }
+  .capability-card .icon-circle .cap-icon { width: 44px; height: 44px; }
+  .worry-card .icon-circle .mask-icon { width: 46px; height: 46px; }
   .flow-card h3 { font-size: 26px; }
   .flow-card p { font-size: 21px; }
   .flow-card .tag { font-size: 18px; padding: 11px 21px; }
