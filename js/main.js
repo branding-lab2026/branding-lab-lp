@@ -1,92 +1,66 @@
-document.addEventListener('DOMContentLoaded', function () {
-  var toggle = document.getElementById('navToggle');
-  var nav = document.getElementById('mainNav');
-
-  if (toggle && nav) {
-    toggle.addEventListener('click', function () {
-      nav.classList.toggle('open');
-    });
-
-    nav.querySelectorAll('a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        nav.classList.remove('open');
-      });
-    });
-  }
-
-  function scrollToTopClearHash() {
-    if (window.location.hash) {
-      history.replaceState(null, '', window.location.pathname + window.location.search);
-    }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  var header = document.querySelector('.site-header');
+document.addEventListener("DOMContentLoaded", () => {
+  // ヘッダーの固定表示とスクロール時の影
+  const header = document.querySelector(".site-header");
   if (header) {
-    header.addEventListener('click', function (e) {
-      if (e.target === header || e.target === header.querySelector('.container')) {
-        scrollToTopClearHash();
-      }
+    const updateShadow = () => {
+      header.classList.toggle("is-scrolled", window.scrollY > 8);
+    };
+    updateShadow();
+    window.addEventListener("scroll", updateShadow, { passive: true });
+  }
+
+  // スマホ用ナビの開閉
+  const toggle = document.querySelector("[data-nav-toggle]");
+  const links = document.querySelector("[data-nav-links]");
+  if (toggle && links) {
+    toggle.addEventListener("click", () => {
+      const isOpen = links.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+    links.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => links.classList.remove("is-open"));
     });
   }
 
-  document.querySelectorAll('.header-logo-home').forEach(function (logo) {
-    logo.addEventListener('click', function (e) {
+  // ロゴ/サイト名クリック時は、URLの#付きハッシュを取り除いてページ最上部へ戻る
+  // (href="#"だけにすると#がURLに残ってしまうため、history.replaceStateで明示的にクリーンなURLへ戻す)
+  document.querySelectorAll("[data-logo-home]").forEach((el) => {
+    el.addEventListener("click", (e) => {
       e.preventDefault();
-      scrollToTopClearHash();
+      if (window.location.hash) {
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   });
 
-  initHeaderShadow();
-  initFadeUp();
-  initScrollers();
-});
-
-// ヘッダーを常に上部に固定し、8pxスクロールしたら影をつける
-function initHeaderShadow() {
-  var header = document.querySelector('.site-header');
-  if (!header) return;
-  var update = function () {
-    header.classList.toggle('is-scrolled', window.scrollY > 8);
-  };
-  update();
-  window.addEventListener('scroll', update, { passive: true });
-}
-
-// スクロールで要素がふわっと表れるアニメーション
-function initFadeUp() {
-  var targets = document.querySelectorAll('.fade-up');
-  if (!('IntersectionObserver' in window) || targets.length === 0) {
-    targets.forEach(function (el) { el.classList.add('is-visible'); });
-    return;
+  // スクロールで要素がふわっと表れる
+  const targets = document.querySelectorAll(".fade-up, .fade-left, .fade-right");
+  if (!("IntersectionObserver" in window) || targets.length === 0) {
+    targets.forEach((el) => el.classList.add("is-visible"));
+  } else {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    targets.forEach((el) => observer.observe(el));
   }
 
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-
-  targets.forEach(function (el) { observer.observe(el); });
-}
-
-// 「実際にどう進む?」「開催スケジュール」の横スクロールを矢印ボタンでも操作できるようにする
-function initScrollers() {
-  document.querySelectorAll('[data-scroll-prev]').forEach(function (btn) {
-    var track = document.getElementById(btn.getAttribute('data-scroll-prev'));
+  // 横スクロールエリアの矢印ボタン
+  document.querySelectorAll("[data-scroll-prev], [data-scroll-next]").forEach((btn) => {
+    const targetId = btn.dataset.scrollPrev || btn.dataset.scrollNext;
+    const track = document.getElementById(targetId);
     if (!track) return;
-    btn.addEventListener('click', function () {
-      track.scrollBy({ left: -240, behavior: 'smooth' });
+    const dir = btn.hasAttribute("data-scroll-prev") ? -1 : 1;
+    btn.addEventListener("click", () => {
+      track.scrollBy({ left: dir * 220, behavior: "smooth" });
     });
   });
-  document.querySelectorAll('[data-scroll-next]').forEach(function (btn) {
-    var track = document.getElementById(btn.getAttribute('data-scroll-next'));
-    if (!track) return;
-    btn.addEventListener('click', function () {
-      track.scrollBy({ left: 240, behavior: 'smooth' });
-    });
-  });
-}
+});
