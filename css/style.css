@@ -9,20 +9,21 @@
   --color-teal-dark: #185E7C;
   --color-teal-light: #B8CED5;
   --color-gray: #6B7684;
-  --color-dark: #1F2933;
-  --color-navy: #10294A;
-  --color-bg-page: #FFFFFF;
-  --color-bg-soft: #F2F7FA;
-  --color-bg-soft2: #E8F1F4;
+  --color-dark: #2E2A22;
+  --color-navy: #16324F;
+  --color-bg-page: #FBF7EE;
+  --color-bg-soft: #F4EEDF;
+  --color-bg-soft2: #ECE4CF;
   --color-icon-peach: #FBE6D8;
   --color-icon-blue: #DCEAF3;
   --color-white: #FFFFFF;
-  --font-heading: 'Noto Serif JP', serif;
-  --font-body: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  --font-heading: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --font-body: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --font-ui: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', sans-serif;
   --max-width: 1120px;
-  --radius: 20px;
+  --radius: 12px;
   --radius-pill: 999px;
-  --shadow-soft: 0 10px 28px rgba(16, 41, 74, 0.08);
+  --shadow-soft: 0 12px 32px rgba(46, 42, 34, 0.09);
 }
 
 * { box-sizing: border-box; }
@@ -35,16 +36,27 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
+  font-weight: 400;
   color: var(--color-dark);
   background: var(--color-bg-page);
-  line-height: 1.8;
+  line-height: 1.9;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
+/* UI要素(ナビ・ボタン・ラベル・フォーム等)はゴシック体で可読性を優先 */
+.main-nav, .btn, .nav-toggle, .eyebrow, .chip-label, .chip-value,
+.deadline-badge, .tag, .step-label, .step-num, .t-name, .t-date, .t-time,
+.t-place, .timeline-legend, .legend-item, .donut-hole .big, .overview-icon-yen,
+.faq-item summary, .scroll-hint, .footer-links, .footer-tagline, .copyright,
+input, textarea, select {
+  font-family: var(--font-ui);
+}
+
 img { max-width: 100%; display: block; }
 
-a { color: inherit; text-decoration: none; }
+a { color: inherit; text-decoration: none; transition: opacity 0.25s ease; }
+a:hover { opacity: 0.82; }
 
 .container {
   max-width: var(--max-width);
@@ -136,9 +148,14 @@ h1, h2, h3, h4 {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 500;
-  background: rgba(255,255,255,0.92);
+  background: rgba(251,247,238,0.92);
   backdrop-filter: blur(6px);
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(46,42,34,0.08);
+  box-shadow: 0 0 0 rgba(46,42,34,0);
+  transition: box-shadow 0.25s ease;
+}
+.site-header.is-scrolled {
+  box-shadow: 0 8px 24px rgba(46,42,34,0.08);
 }
 .site-header .container {
   display: flex;
@@ -204,7 +221,7 @@ h1, h2, h3, h4 {
 .hero-bg::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(15,26,33,0.20) 0%, rgba(15,26,33,0.38) 55%, rgba(15,26,33,0.62) 100%);
+  background: linear-gradient(180deg, rgba(35,24,12,0.18) 0%, rgba(35,24,12,0.36) 55%, rgba(35,24,12,0.6) 100%);
 }
 .hero-inner {
   position: relative;
@@ -919,7 +936,7 @@ h1, h2, h3, h4 {
 
 /* ===== Footer ===== */
 .site-footer {
-  background: #17222B;
+  background: #221C13;
   color: rgba(255,255,255,0.85);
   padding: 48px 0 28px;
   text-align: center;
@@ -958,7 +975,12 @@ h1, h2, h3, h4 {
 
 @media (max-width: 720px) {
   .main-nav, .header-cta { display: none; }
-  .nav-toggle { display: flex; }
+  .nav-toggle { display: flex; flex: none; }
+  .site-header .container { gap: 10px; }
+  .brand-logos { min-width: 0; flex-wrap: nowrap; gap: 6px; }
+  .brand-logos img { height: 16px; }
+  .brand-logos .camps-logo-img { height: 32px; }
+  .brand-logos .x { font-size: 14px; }
   section { padding: 56px 0; }
   .grid-3, .grid-3-plain { grid-template-columns: 1fr; }
   .grid-4 { grid-template-columns: 1fr; }
@@ -1112,4 +1134,23 @@ h1, h2, h3, h4 {
   border-radius: var(--radius-pill);
   padding: 14px;
   font-weight: 700;
+}
+
+/* ===== スクロールフェードイン ===== */
+.js-reveal .reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+.js-reveal .reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal .reveal {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
