@@ -5,14 +5,18 @@
 **公開URL**: https://branding-lab2026.github.io/branding-lab-lp/
 **リポジトリ**: https://github.com/branding-lab2026/branding-lab-lp
 
+## デザインについて
+
+NESTブランドサイトのデザイン言語(クリーム基調の暖色パレット・本文にも明朝体を使う統一感・控えめな角丸・柔らかい影・スクロールフェードイン)を参考に構築しています。
+
 ## フォルダの中身
 
 ```
 LP/
 ├─ index.html          ← ページ本体
 ├─ css/style.css        ← デザイン(色・レイアウト)
-├─ js/main.js           ← スマホメニューの開閉など
-├─ assets/img/          ← 写真・ロゴ
+├─ js/main.js           ← スマホメニューの開閉、フェードイン、横スクロール矢印など
+├─ assets/img/          ← 写真・ロゴ・アイコン
 ├─ serve.ps1            ← 手元で確認するための簡易サーバー(公開には使いません)
 └─ README.md            ← このファイル
 ```

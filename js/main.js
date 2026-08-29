@@ -37,10 +37,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  initScrollReveal();
   initHeaderShadow();
+  initFadeUp();
+  initScrollers();
 });
 
+// ヘッダーを常に上部に固定し、8pxスクロールしたら影をつける
 function initHeaderShadow() {
   var header = document.querySelector('.site-header');
   if (!header) return;
@@ -51,45 +53,40 @@ function initHeaderShadow() {
   window.addEventListener('scroll', update, { passive: true });
 }
 
-function initScrollReveal() {
-  var selectors = [
-    '.section-title', '.section-lead',
-    '.worry-card', '.capability-card', '.flow-card', '.flow-arrow',
-    '.gallery-card', '.instructor-card', '.voice-card', '.achievement-item',
-    '.change-card', '.theme-card', '.step-item', '.step-arrow',
-    '.timeline-item', '.faq-item', '.survey-card', '.overview-list li',
-    '.venn-wrap', '.venn-descs', '.final-cta', '.map-embed'
-  ];
-  var els = document.querySelectorAll(selectors.join(','));
-  if (!els.length) return;
-
-  els.forEach(function (el) { el.classList.add('reveal'); });
-
-  var groups = new Map();
-  els.forEach(function (el) {
-    var parent = el.parentElement;
-    if (!groups.has(parent)) groups.set(parent, []);
-    groups.get(parent).push(el);
-  });
-  groups.forEach(function (siblings) {
-    siblings.forEach(function (el, i) {
-      el.style.transitionDelay = Math.min(i * 70, 350) + 'ms';
-    });
-  });
-
-  if (!('IntersectionObserver' in window)) {
-    els.forEach(function (el) { el.classList.add('in-view'); });
+// スクロールで要素がふわっと表れるアニメーション
+function initFadeUp() {
+  var targets = document.querySelectorAll('.fade-up');
+  if (!('IntersectionObserver' in window) || targets.length === 0) {
+    targets.forEach(function (el) { el.classList.add('is-visible'); });
     return;
   }
 
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
+        entry.target.classList.add('is-visible');
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  }, { threshold: 0.15 });
 
-  els.forEach(function (el) { observer.observe(el); });
+  targets.forEach(function (el) { observer.observe(el); });
+}
+
+// 「実際にどう進む?」「開催スケジュール」の横スクロールを矢印ボタンでも操作できるようにする
+function initScrollers() {
+  document.querySelectorAll('[data-scroll-prev]').forEach(function (btn) {
+    var track = document.getElementById(btn.getAttribute('data-scroll-prev'));
+    if (!track) return;
+    btn.addEventListener('click', function () {
+      track.scrollBy({ left: -240, behavior: 'smooth' });
+    });
+  });
+  document.querySelectorAll('[data-scroll-next]').forEach(function (btn) {
+    var track = document.getElementById(btn.getAttribute('data-scroll-next'));
+    if (!track) return;
+    btn.addEventListener('click', function () {
+      track.scrollBy({ left: 240, behavior: 'smooth' });
+    });
+  });
 }
