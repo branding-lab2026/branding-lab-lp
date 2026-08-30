@@ -28,7 +28,6 @@
   --shadow-lift: 0 18px 40px rgba(50, 36, 16, 0.16);
 
   --font-base: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", sans-serif;
-  --font-serif: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", serif;
 
   --max-width: 1160px;
   --radius: 10px;
@@ -47,7 +46,7 @@ body {
   margin: 0;
   background-color: var(--color-bg);
   color: var(--color-ink);
-  font-family: var(--font-serif);
+  font-family: var(--font-base);
   line-height: 1.9;
   -webkit-font-smoothing: antialiased;
   padding-top: 74px;
@@ -562,29 +561,14 @@ section[id] {
   color: var(--color-ink-soft);
 }
 
-/* ---------------- なぜこのラボか(理念・大きな引用) ---------------- */
+/* ---------------- なぜこのラボか ---------------- */
 
-.pull-quote {
-  text-align: center;
-  max-width: 780px;
-  margin: 0 auto;
-  font-size: clamp(22px, 3.2vw, 32px);
-  line-height: 1.7;
-}
-
-.pull-quote .brand-term {
+.brand-term {
   color: var(--color-blue);
 }
 
-.pull-quote .market-term {
+.market-term {
   color: var(--color-gold-deep);
-}
-
-.why-desc {
-  max-width: 680px;
-  margin: 28px auto 0;
-  text-align: center;
-  color: var(--color-ink-soft);
 }
 
 .why-pair {
@@ -923,15 +907,15 @@ section[id] {
 .voice-quote:last-child { margin-bottom: 0; }
 
 .voice-quote__mark {
-  font-family: Georgia, serif;
-  font-size: 48px;
-  color: var(--color-gold-pale);
+  font-size: 22px;
+  color: var(--color-label);
   line-height: 1;
+  margin-bottom: 8px;
 }
 
 .voice-quote p {
-  font-size: clamp(16px, 2vw, 19px);
-  line-height: 1.8;
+  font-size: 15px;
+  line-height: 1.85;
 }
 
 .voice-quote__person {
