@@ -24,15 +24,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ロゴ/サイト名クリック時は、URLの#付きハッシュを取り除いてページ最上部へ戻る
   // (href="#"だけにすると#がURLに残ってしまうため、history.replaceStateで明示的にクリーンなURLへ戻す)
+  const goHome = () => {
+    if (window.location.hash) {
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   document.querySelectorAll("[data-logo-home]").forEach((el) => {
     el.addEventListener("click", (e) => {
       e.preventDefault();
-      if (window.location.hash) {
-        history.replaceState(null, "", window.location.pathname + window.location.search);
-      }
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      goHome();
     });
   });
+
+  // ヘッダーの何もない部分(ロゴ・ナビ・ボタン以外)をクリックした場合も同じ挙動にする
+  if (header) {
+    header.addEventListener("click", (e) => {
+      if (e.target.closest("a, button")) return;
+      goHome();
+    });
+  }
 
   // スクロールで要素がふわっと表れる
   const targets = document.querySelectorAll(".fade-up, .fade-left, .fade-right");

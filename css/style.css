@@ -87,19 +87,20 @@ h1, h2, h3, h4 {
   font-weight: 500;
   letter-spacing: 0.02em;
   line-height: 1.5;
-  text-wrap: balance;
+  text-wrap: pretty;
   word-break: keep-all;
   overflow-wrap: break-word;
 }
 
 .lead, .section-lead {
   text-wrap: pretty;
-  word-break: keep-all;
   overflow-wrap: break-word;
 }
 
 p {
   margin: 0;
+  text-wrap: pretty;
+  overflow-wrap: break-word;
 }
 
 ul {
@@ -351,7 +352,7 @@ section[id] {
 .hero__frame {
   position: relative;
   overflow: hidden;
-  border-radius: var(--radius);
+  border-radius: 0;
 }
 
 .hero__media {
@@ -369,7 +370,9 @@ section[id] {
 .hero__scrim {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(43, 33, 22, 0.05) 0%, rgba(43, 33, 22, 0) 30%, rgba(43, 33, 22, 0.1) 100%);
+  background:
+    linear-gradient(100deg, rgba(255, 253, 248, 0.78) 0%, rgba(255, 253, 248, 0.45) 32%, rgba(255, 253, 248, 0) 62%),
+    linear-gradient(180deg, rgba(43, 33, 22, 0.05) 0%, rgba(43, 33, 22, 0) 30%, rgba(43, 33, 22, 0.1) 100%);
 }
 
 .hero__inner {
@@ -467,6 +470,7 @@ section[id] {
 .deadline-text__label {
   font-family: var(--font-base);
   font-size: 14px;
+  font-weight: 700;
   letter-spacing: 0.1em;
   color: var(--color-ink-soft);
   white-space: nowrap;
@@ -474,15 +478,19 @@ section[id] {
 
 .deadline-text__date {
   font-family: var(--font-base);
-  font-size: clamp(19px, 2.4vw, 24px);
+  font-size: clamp(22px, 3.2vw, 30px);
   font-weight: 700;
   letter-spacing: 0.01em;
   color: var(--color-urgent);
+  background: var(--color-gold-pale);
+  padding: 3px 12px;
+  border-radius: 4px;
+  white-space: nowrap;
 }
 
 .deadline-text__note {
   flex-basis: 100%;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--color-ink-soft);
 }
 
@@ -769,6 +777,12 @@ section[id] {
   margin-top: 56px;
 }
 
+@media (max-width: 700px) {
+  .chart-row {
+    flex-direction: column;
+  }
+}
+
 .donut-card {
   text-align: center;
 }
@@ -891,8 +905,8 @@ section[id] {
 .gain-row {
   display: flex;
   align-items: center;
-  gap: 22px;
-  padding: 22px 0;
+  gap: 26px;
+  padding: 26px 0;
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -901,8 +915,8 @@ section[id] {
 
 .gain-row__icon {
   flex: none;
-  width: 60px;
-  height: 60px;
+  width: 74px;
+  height: 74px;
   border-radius: 50%;
   background: var(--color-blue-pale);
   display: flex;
@@ -911,18 +925,18 @@ section[id] {
 }
 
 .gain-row__icon img {
-  width: 30px;
-  height: 30px;
+  width: 38px;
+  height: 38px;
   object-fit: contain;
 }
 
 .gain-row h3 {
-  font-size: 16px;
-  margin-bottom: 4px;
+  font-size: 19px;
+  margin-bottom: 6px;
 }
 
 .gain-row p {
-  font-size: 14px;
+  font-size: 16px;
   color: var(--color-ink-soft);
 }
 
@@ -1120,7 +1134,7 @@ section[id] {
   position: absolute;
   left: 76px;
   right: 76px;
-  top: 42px;
+  top: 47px;
   height: 2px;
   background: var(--color-border);
   z-index: 0;
@@ -1128,7 +1142,7 @@ section[id] {
 
 .timeline-node {
   flex: none;
-  width: 132px;
+  width: 150px;
   text-align: center;
   position: relative;
   z-index: 1;
@@ -1136,14 +1150,14 @@ section[id] {
 
 .timeline-node__date {
   font-family: var(--font-base);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   color: var(--color-ink);
 }
 
 .timeline-node__dot {
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background: var(--color-gold);
   margin: 14px auto;
@@ -1153,10 +1167,10 @@ section[id] {
 .timeline-node--online .timeline-node__dot { background: var(--color-blue); }
 
 .timeline-node__name {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   line-height: 1.5;
-  min-height: 40px;
+  min-height: 46px;
   color: var(--color-gold-deep);
 }
 
@@ -1164,13 +1178,13 @@ section[id] {
 
 .timeline-node__time {
   margin-top: 8px;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--color-ink-soft);
 }
 
 .timeline-node__place {
-  margin-top: 2px;
-  font-size: 12px;
+  margin-top: 3px;
+  font-size: 13px;
   color: var(--color-ink-soft);
 }
 
@@ -1212,8 +1226,8 @@ section[id] {
 
 .overview__icon {
   flex: none;
-  width: 38px;
-  height: 38px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background: var(--color-blue-pale);
   display: flex;
@@ -1221,16 +1235,17 @@ section[id] {
   justify-content: center;
 }
 
-.overview__icon img { width: 18px; height: 18px; object-fit: contain; }
+.overview__icon img { width: 23px; height: 23px; object-fit: contain; }
 
 .overview__icon--yen {
   font-family: var(--font-base);
   font-weight: 700;
+  font-size: 18px;
   color: var(--color-gold-deep);
 }
 
-.overview__label { font-size: 12px; letter-spacing: 0.06em; color: var(--color-label); }
-.overview__value { margin-top: 4px; font-size: 14px; }
+.overview__label { font-size: 13px; letter-spacing: 0.06em; color: var(--color-label); }
+.overview__value { margin-top: 6px; font-size: 16px; }
 
 .map-embed {
   margin-top: 24px;
@@ -1246,7 +1261,7 @@ section[id] {
 
 .faq__q {
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   list-style: none;
   display: flex;
@@ -1259,7 +1274,7 @@ section[id] {
 .faq__q::after { content: "+"; font-size: 18px; color: var(--color-gold-deep); flex: none; }
 details[open] .faq__q::after { content: "–"; }
 
-.faq__a { margin-top: 12px; font-size: 14px; color: var(--color-ink-soft); line-height: 1.85; }
+.faq__a { margin-top: 12px; font-size: 15px; color: var(--color-ink-soft); line-height: 1.85; }
 .faq-more { margin-top: 20px; font-size: 14px; color: var(--color-ink-soft); }
 
 /* ---------------- 最終CTA ---------------- */
