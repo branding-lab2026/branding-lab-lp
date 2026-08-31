@@ -509,6 +509,49 @@ section[id] {
   margin-bottom: 14px;
 }
 
+.hero__instructor {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding: 8px 20px 8px 8px;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 999px;
+  box-shadow: var(--shadow-soft);
+}
+
+.hero__instructor-photo {
+  flex: none;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.hero__instructor-text {
+  font-size: 14px;
+  color: var(--color-ink);
+  font-weight: 700;
+}
+
+.hero__instructor-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--color-urgent);
+  border-radius: 4px;
+  padding: 2px 7px;
+  margin-right: 8px;
+  letter-spacing: 0.04em;
+}
+
+.hero__instructor-org {
+  font-weight: 500;
+  color: var(--color-ink-soft);
+  margin-left: 4px;
+}
+
 .hero h1 {
   font-size: clamp(26px, 4.2vw, 46px);
   color: var(--color-ink);
@@ -567,6 +610,11 @@ section[id] {
   }
 
   .hero__kicker { font-size: 13px; margin-bottom: 8px; }
+
+  .hero__instructor { margin-bottom: 14px; padding: 6px 16px 6px 6px; }
+  .hero__instructor-photo { width: 36px; height: 36px; }
+  .hero__instructor-text { font-size: 12.5px; }
+  .hero__instructor-label { font-size: 10px; padding: 2px 6px; margin-right: 6px; }
 
   .hero h1 { font-size: clamp(22px, 6.4vw, 28px); }
 
