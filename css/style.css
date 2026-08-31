@@ -341,7 +341,10 @@ section[id] {
   }
 }
 
-/* ---------------- ヒーロー ---------------- */
+/* ---------------- ヒーロー ----------------
+   画像は背景として敷き詰め(position:absolute)、実際の高さは
+   前面のテキスト(hero__inner)の量で決まる。そのためテキストが
+   増えても画像からはみ出したり隠れたりしない。 */
 
 .hero {
   position: relative;
@@ -353,11 +356,13 @@ section[id] {
   position: relative;
   overflow: hidden;
   border-radius: 0;
+  min-height: 480px;
 }
 
 .hero__media {
-  position: relative;
-  aspect-ratio: 16 / 9;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .hero__media img {
@@ -370,17 +375,16 @@ section[id] {
 .hero__scrim {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background:
     linear-gradient(100deg, rgba(255, 253, 248, 0.78) 0%, rgba(255, 253, 248, 0.45) 32%, rgba(255, 253, 248, 0) 62%),
     linear-gradient(180deg, rgba(43, 33, 22, 0.05) 0%, rgba(43, 33, 22, 0) 30%, rgba(43, 33, 22, 0.1) 100%);
 }
 
 .hero__inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: clamp(28px, 4.5vw, 60px) clamp(24px, 6vw, 68px) 0;
+  position: relative;
+  z-index: 2;
+  padding: clamp(28px, 4.5vw, 60px) clamp(24px, 6vw, 68px) clamp(40px, 6vw, 76px);
   max-width: 600px;
 }
 
@@ -442,17 +446,74 @@ section[id] {
 }
 
 @media (max-width: 760px) {
-  .hero__frame { border-radius: 0; }
   .hero { margin-top: 0; }
-  .hero__media { aspect-ratio: 4 / 5; }
-  .hero__media img { object-position: 28% 55%; }
-  .hero__inner {
-    position: static;
-    padding: 26px 20px 30px;
-    max-width: none;
-    background: var(--color-bg);
+}
+
+/* 縦向きスマホ: 画像は縦長寄りの最低高さを確保しつつ、
+   締切までを画像の上に重ねて表示する(PCと同じ考え方)。
+   高さは中身に応じて伸びるため、内容が増えてもはみ出さない。 */
+@media (max-width: 760px) and (orientation: portrait) {
+  .hero__frame { min-height: 92vh; }
+  .hero__media img { object-position: 30% 38%; }
+
+  .hero__scrim {
+    background:
+      linear-gradient(180deg, rgba(255, 253, 248, 0.88) 0%, rgba(255, 253, 248, 0.6) 38%, rgba(255, 253, 248, 0.15) 64%, rgba(255, 253, 248, 0) 78%),
+      linear-gradient(0deg, rgba(43, 33, 22, 0.2) 0%, rgba(43, 33, 22, 0) 24%);
   }
-  .hero__scrim { display: none; }
+
+  .hero__inner {
+    max-width: none;
+    padding: 22px 20px 30px;
+    display: flex;
+    flex-direction: column;
+    min-height: 92vh;
+  }
+
+  .hero__logos { margin-bottom: 14px; }
+  .hero__logos img { height: 20px; }
+  .hero__logos .camps-mark { height: 27px; }
+
+  .hero h1 { font-size: clamp(22px, 6.4vw, 28px); }
+
+  .hero p.lead {
+    margin-top: 12px;
+    font-size: 13.5px;
+    line-height: 1.7;
+    max-width: none;
+  }
+
+  .hero__facts {
+    margin-top: 14px;
+    font-size: 12.5px;
+  }
+
+  .deadline-text {
+    margin-top: 14px;
+    padding-top: 12px;
+    gap: 8px 12px;
+  }
+
+  .deadline-text__label { font-size: 12px; }
+  .deadline-text__date { font-size: 18px; padding: 2px 9px; }
+  .deadline-text__note { font-size: 11.5px; }
+
+  .hero__actions { margin-top: auto; padding-top: 16px; }
+  .hero__actions .btn { width: 100%; justify-content: center; }
+}
+
+/* 横向きスマホ: PCに近い横長レイアウトを維持しつつ、はみ出さないよう調整 */
+@media (max-width: 900px) and (orientation: landscape) {
+  .hero__frame { min-height: 92vh; }
+  .hero__inner { max-width: 62%; padding-top: 18px; padding-bottom: 18px; }
+  .hero__logos { margin-bottom: 10px; }
+  .hero h1 { font-size: clamp(18px, 3.6vw, 24px); }
+  .hero p.lead { margin-top: 8px; font-size: 12.5px; line-height: 1.6; }
+  .hero__facts { margin-top: 10px; font-size: 11.5px; }
+  .deadline-text { margin-top: 10px; padding-top: 10px; }
+  .deadline-text__date { font-size: 17px; }
+  .deadline-text__note { flex-basis: auto; }
+  .hero__actions { margin-top: 12px; }
 }
 
 /* ---- 締切の強調表示(ボタンと誤認しないよう、塗りつぶしなしのテキスト表現) ---- */
