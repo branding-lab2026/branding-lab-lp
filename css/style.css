@@ -488,7 +488,7 @@ section[id] {
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(100deg, rgba(255, 253, 248, 0.78) 0%, rgba(255, 253, 248, 0.45) 32%, rgba(255, 253, 248, 0) 62%),
+    linear-gradient(100deg, rgba(255, 253, 248, 0.82) 0%, rgba(255, 253, 248, 0.55) 42%, rgba(255, 253, 248, 0) 76%),
     linear-gradient(180deg, rgba(43, 33, 22, 0.05) 0%, rgba(43, 33, 22, 0) 30%, rgba(43, 33, 22, 0.1) 100%);
 }
 
@@ -497,20 +497,29 @@ section[id] {
   z-index: 2;
   padding: clamp(28px, 4.5vw, 60px) clamp(24px, 6vw, 68px) clamp(40px, 6vw, 76px);
   margin-left: max(0px, calc((100vw - var(--max-width)) / 2));
-  max-width: 600px;
+  max-width: 900px;
+}
+
+.hero__kicker {
+  display: block;
+  font-size: clamp(15px, 1.6vw, 19px);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--color-gold-deep);
+  margin-bottom: 14px;
 }
 
 .hero h1 {
-  font-size: clamp(24px, 3.6vw, 38px);
+  font-size: clamp(26px, 4.2vw, 46px);
   color: var(--color-ink);
 }
 
 .hero p.lead {
   margin-top: 16px;
   color: var(--color-ink-soft);
-  font-size: clamp(15px, 1.3vw, 17px);
+  font-size: clamp(15px, 1.5vw, 18px);
   line-height: 1.85;
-  max-width: 460px;
+  max-width: 700px;
 }
 
 .hero__facts {
@@ -543,7 +552,7 @@ section[id] {
    締切までを画像の上に重ねて表示する(PCと同じ考え方)。
    高さは中身に応じて伸びるため、内容が増えてもはみ出さない。 */
 @media (max-width: 760px) and (orientation: portrait) {
-  .hero__frame { min-height: calc(100vh - 57px); min-height: calc(100dvh - 57px); }
+  .hero__frame { min-height: 320px; }
   .hero__media img { object-position: center center; }
 
   .hero__scrim {
@@ -554,13 +563,10 @@ section[id] {
 
   .hero__inner {
     max-width: none;
-    padding: 28px 20px 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    min-height: calc(100vh - 57px);
-    min-height: calc(100dvh - 57px);
+    padding: 28px 20px 64px;
   }
+
+  .hero__kicker { font-size: 13px; margin-bottom: 8px; }
 
   .hero h1 { font-size: clamp(22px, 6.4vw, 28px); }
 
@@ -599,9 +605,6 @@ section[id] {
   .deadline-text__label { font-size: 12px; }
   .deadline-text__date { font-size: 18px; padding: 2px 9px; }
   .deadline-text__note { font-size: 11.5px; }
-
-  .hero__actions { margin-top: auto; padding-top: 24px; }
-  .hero__actions .btn { width: 100%; justify-content: center; }
 }
 
 /* 横向きスマホ: PCに近い横長レイアウトを維持しつつ、はみ出さないよう調整 */
