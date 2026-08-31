@@ -421,6 +421,10 @@ section[id] {
   z-index: 0;
 }
 
+.hero__media picture {
+  display: contents;
+}
+
 .hero__media img {
   width: 100%;
   height: 100%;
@@ -488,7 +492,7 @@ section[id] {
    高さは中身に応じて伸びるため、内容が増えてもはみ出さない。 */
 @media (max-width: 760px) and (orientation: portrait) {
   .hero__frame { min-height: 92vh; }
-  .hero__media img { object-position: 30% 38%; }
+  .hero__media img { object-position: center center; }
 
   .hero__scrim {
     background:
