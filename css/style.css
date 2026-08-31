@@ -177,6 +177,8 @@ section[id] {
 .mt-24 { margin-top: 24px; }
 .mt-48 { margin-top: 48px; }
 .mt-64 { margin-top: 64px; }
+.nowrap { white-space: nowrap; }
+.mobile-break { display: none; }
 
 /* ---------------- ボタン ---------------- */
 
@@ -550,10 +552,10 @@ section[id] {
 
   .hero__inner {
     max-width: none;
-    padding: 22px 20px 30px;
+    padding: 28px 20px 30px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     min-height: calc(100vh - 74px);
     min-height: calc(100dvh - 74px);
   }
@@ -568,8 +570,22 @@ section[id] {
   }
 
   .hero__facts {
-    margin-top: 18px;
-    font-size: 12.5px;
+    margin-top: 20px;
+    font-size: 14.5px;
+  }
+
+  .hero__facts b {
+    display: block;
+    font-size: 17px;
+    margin-bottom: 6px;
+  }
+
+  .sep--first {
+    display: none;
+  }
+
+  .mobile-break {
+    display: block;
   }
 
   .deadline-text {
@@ -582,7 +598,7 @@ section[id] {
   .deadline-text__date { font-size: 18px; padding: 2px 9px; }
   .deadline-text__note { font-size: 11.5px; }
 
-  .hero__actions { margin-top: 28px; padding-top: 0; }
+  .hero__actions { margin-top: auto; padding-top: 24px; }
   .hero__actions .btn { width: 100%; justify-content: center; }
 }
 
