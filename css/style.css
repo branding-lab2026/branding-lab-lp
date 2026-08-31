@@ -509,47 +509,66 @@ section[id] {
   margin-bottom: 14px;
 }
 
-.hero__instructor {
+.hero__speakers {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 18px;
-  padding: 8px 20px 8px 8px;
-  background: rgba(255, 255, 255, 0.75);
+  gap: 16px;
+  margin-bottom: 22px;
+  padding: 12px 24px 12px 14px;
+  background: rgba(255, 255, 255, 0.82);
   border-radius: 999px;
   box-shadow: var(--shadow-soft);
+  flex-wrap: wrap;
 }
 
-.hero__instructor-photo {
+.hero__speakers-label {
   flex: none;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.hero__instructor-text {
-  font-size: 14px;
-  color: var(--color-ink);
-  font-weight: 700;
-}
-
-.hero__instructor-label {
   display: inline-block;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   color: #fff;
   background: var(--color-urgent);
-  border-radius: 4px;
-  padding: 2px 7px;
-  margin-right: 8px;
-  letter-spacing: 0.04em;
+  border-radius: 6px;
+  padding: 5px 10px;
+  letter-spacing: 0.06em;
 }
 
-.hero__instructor-org {
-  font-weight: 500;
+.hero__speakers-list {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hero__speaker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero__speaker img {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 3px #fff;
+}
+
+.hero__speaker-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+}
+
+.hero__speaker-text strong {
+  font-size: 15px;
+  color: var(--color-ink);
+}
+
+.hero__speaker-text span {
+  font-size: 12px;
   color: var(--color-ink-soft);
-  margin-left: 4px;
 }
 
 .hero h1 {
@@ -611,10 +630,16 @@ section[id] {
 
   .hero__kicker { font-size: 13px; margin-bottom: 8px; }
 
-  .hero__instructor { margin-bottom: 14px; padding: 6px 16px 6px 6px; }
-  .hero__instructor-photo { width: 36px; height: 36px; }
-  .hero__instructor-text { font-size: 12.5px; }
-  .hero__instructor-label { font-size: 10px; padding: 2px 6px; margin-right: 6px; }
+  .hero__speakers {
+    margin-bottom: 16px;
+    padding: 12px 16px;
+    border-radius: 20px;
+    gap: 10px 14px;
+  }
+  .hero__speakers-list { gap: 14px; }
+  .hero__speaker img { width: 46px; height: 46px; }
+  .hero__speaker-text strong { font-size: 13px; }
+  .hero__speaker-text span { font-size: 10.5px; }
 
   .hero h1 { font-size: clamp(22px, 6.4vw, 28px); }
 
