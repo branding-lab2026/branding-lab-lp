@@ -1007,9 +1007,18 @@ section[id] {
 .voice-quote__person {
   margin-top: 16px;
   padding-left: 32px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-base);
   font-size: 14px;
   color: var(--color-ink-soft);
+}
+
+.voice-quote__person img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
 }
 
 .voice-grid {
