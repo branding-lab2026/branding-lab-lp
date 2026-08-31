@@ -488,7 +488,7 @@ section[id] {
   inset: 0;
   z-index: 0;
   background:
-    linear-gradient(90deg, rgba(255, 253, 248, 0.3) 0%, rgba(255, 253, 248, 0.88) 28%, rgba(255, 253, 248, 0.88) 72%, rgba(255, 253, 248, 0.3) 100%),
+    linear-gradient(90deg, rgba(255, 253, 248, 0.9) 0%, rgba(255, 253, 248, 0.85) 42%, rgba(255, 253, 248, 0.35) 62%, rgba(255, 253, 248, 0.15) 100%),
     linear-gradient(180deg, rgba(43, 33, 22, 0.05) 0%, rgba(43, 33, 22, 0) 30%, rgba(43, 33, 22, 0.08) 100%);
 }
 
@@ -587,17 +587,16 @@ section[id] {
     z-index: 1;
     width: clamp(190px, 19vw, 300px);
     overflow: hidden;
-    filter: drop-shadow(0 14px 24px rgba(50, 36, 16, 0.25));
-  }
-
-  .hero__side-photo--left {
-    left: clamp(16px, 3vw, 48px);
-    clip-path: polygon(0 0, 100% 0, 74% 100%, 0 100%);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lift);
   }
 
   .hero__side-photo--right {
     right: clamp(16px, 3vw, 48px);
-    clip-path: polygon(26% 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .hero__side-photo--left {
+    right: calc(clamp(16px, 3vw, 48px) + clamp(190px, 19vw, 300px) + 16px);
   }
 
   .hero__side-photo img {
@@ -611,15 +610,12 @@ section[id] {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
-    padding: 18px 14px 16px;
+    top: 0;
+    padding: 16px 14px 20px;
     text-align: center;
     color: #fff;
-    background: linear-gradient(0deg, rgba(36, 29, 20, 0.75) 0%, rgba(36, 29, 20, 0) 70%);
+    background: linear-gradient(180deg, rgba(36, 29, 20, 0.75) 0%, rgba(36, 29, 20, 0) 70%);
   }
-
-  .hero__side-photo--left .hero__side-photo-caption { padding-right: 30px; }
-  .hero__side-photo--right .hero__side-photo-caption { padding-left: 30px; }
 
   .hero__side-photo-caption strong {
     display: block;
@@ -634,8 +630,8 @@ section[id] {
   }
 
   .hero__inner {
-    margin-left: max(calc(clamp(190px, 19vw, 300px) + clamp(16px, 3vw, 48px) + 24px), calc((100vw - var(--max-width)) / 2));
-    margin-right: calc(clamp(190px, 19vw, 300px) + clamp(16px, 3vw, 48px) + 24px);
+    margin-left: max(0px, calc((100vw - var(--max-width)) / 2));
+    margin-right: calc(2 * clamp(190px, 19vw, 300px) + 16px + clamp(16px, 3vw, 48px) + 32px);
   }
 }
 
