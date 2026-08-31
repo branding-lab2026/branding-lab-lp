@@ -52,7 +52,7 @@ body {
   font-family: var(--font-base);
   line-height: 1.9;
   -webkit-font-smoothing: antialiased;
-  padding-top: 74px;
+  padding-top: 57px;
   overflow-x: hidden;
 }
 
@@ -320,6 +320,7 @@ section[id] {
     justify-content: center;
     border-bottom: none;
     padding: 13px 10px;
+    padding-bottom: max(13px, env(safe-area-inset-bottom));
   }
 
   .floating-cta__row:first-child {
@@ -335,7 +336,7 @@ section[id] {
   }
 
   body {
-    padding-bottom: 58px;
+    padding-bottom: calc(53px + env(safe-area-inset-bottom));
   }
 }
 
@@ -455,7 +456,7 @@ section[id] {
 
 .hero {
   position: relative;
-  margin-top: 18px;
+  margin-top: 0;
 }
 
 .hero__frame {
@@ -535,13 +536,14 @@ section[id] {
 
 @media (max-width: 760px) {
   .hero { margin-top: 0; }
+  .hero__actions { display: none; }
 }
 
 /* 縦向きスマホ: 画像は縦長寄りの最低高さを確保しつつ、
    締切までを画像の上に重ねて表示する(PCと同じ考え方)。
    高さは中身に応じて伸びるため、内容が増えてもはみ出さない。 */
 @media (max-width: 760px) and (orientation: portrait) {
-  .hero__frame { min-height: calc(100vh - 74px); min-height: calc(100dvh - 74px); }
+  .hero__frame { min-height: calc(100vh - 57px); min-height: calc(100dvh - 57px); }
   .hero__media img { object-position: center center; }
 
   .hero__scrim {
@@ -556,8 +558,8 @@ section[id] {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    min-height: calc(100vh - 74px);
-    min-height: calc(100dvh - 74px);
+    min-height: calc(100vh - 57px);
+    min-height: calc(100dvh - 57px);
   }
 
   .hero h1 { font-size: clamp(22px, 6.4vw, 28px); }
@@ -1068,14 +1070,15 @@ section[id] {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 14px;
 }
 
 .theme-tag {
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 500;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
-  padding: 8px 16px;
+  padding: 12px 24px;
   background: var(--color-surface);
 }
 
