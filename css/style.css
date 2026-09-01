@@ -512,26 +512,9 @@ section[id] {
 }
 
 .hero__photos {
-  position: relative;
   display: flex;
   gap: 12px;
   margin-top: 24px;
-}
-
-.hero__photos-label {
-  position: absolute;
-  top: -14px;
-  left: 12px;
-  z-index: 2;
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 700;
-  color: #fff;
-  background: var(--color-urgent);
-  border-radius: 6px;
-  padding: 5px 12px;
-  letter-spacing: 0.06em;
-  box-shadow: var(--shadow-soft);
 }
 
 .hero__side-photo {
@@ -541,6 +524,22 @@ section[id] {
   overflow: hidden;
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
+}
+
+.hero__side-photo-label {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-ink);
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 6px;
+  padding: 4px 12px;
+  letter-spacing: 0.06em;
 }
 
 .hero__side-photo img {
@@ -580,10 +579,10 @@ section[id] {
     max-width: 1500px;
     margin: 0 auto;
     display: flex;
-    align-items: flex-start;
+    align-items: stretch;
     justify-content: center;
     gap: 56px;
-    padding: clamp(48px, 6vw, 76px) clamp(24px, 4vw, 64px) clamp(140px, 12vw, 180px);
+    padding: clamp(48px, 6vw, 76px) clamp(24px, 4vw, 64px);
   }
 
   .hero__inner {
@@ -600,6 +599,8 @@ section[id] {
   .hero__side-photo {
     flex: none;
     width: clamp(190px, 19vw, 300px);
+    aspect-ratio: auto;
+    height: 100%;
     box-shadow: var(--shadow-lift);
   }
 
