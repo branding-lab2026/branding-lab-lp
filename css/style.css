@@ -525,12 +525,13 @@ section[id] {
   right: 0;
   z-index: 3;
   text-align: center;
-  padding: 16px 0 34px;
-  font-size: 15px;
+  padding: 20px 0 50px;
+  font-size: 20px;
   font-weight: 700;
   color: #fff;
-  letter-spacing: 0.1em;
-  background: linear-gradient(180deg, rgba(36, 29, 20, 0.7) 0%, rgba(36, 29, 20, 0.32) 60%, rgba(36, 29, 20, 0) 100%);
+  letter-spacing: 0.12em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(180deg, rgba(15, 12, 8, 0.88) 0%, rgba(15, 12, 8, 0.6) 55%, rgba(15, 12, 8, 0) 100%);
   pointer-events: none;
 }
 
