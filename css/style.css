@@ -512,9 +512,26 @@ section[id] {
 }
 
 .hero__photos {
+  position: relative;
   display: flex;
   gap: 12px;
   margin-top: 24px;
+}
+
+.hero__photos-label {
+  position: absolute;
+  top: -14px;
+  left: 12px;
+  z-index: 2;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: var(--color-urgent);
+  border-radius: 6px;
+  padding: 5px 12px;
+  letter-spacing: 0.06em;
+  box-shadow: var(--shadow-soft);
 }
 
 .hero__side-photo {
