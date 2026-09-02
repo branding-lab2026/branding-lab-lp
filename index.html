@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>ブランディング未来創造ラボ FY26 | ひろしまCamps × FICC</title>
@@ -34,7 +42,7 @@
 </header>
 
 <!-- ===== フローティングCTA ===== -->
-<div class="floating-cta">
+<div class="floating-cta" id="floating-cta">
   <a href="https://forms.gle/sUvXQ4iW6fAgKnK2A" target="_blank" rel="noopener" class="floating-cta__row floating-cta__row--primary">
     <span class="floating-cta__icon">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 17h6"/></svg>
@@ -59,7 +67,7 @@
 <main>
 
   <!-- ===== Hero ===== -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="hero__frame">
       <div class="hero__media">
         <picture>
@@ -455,7 +463,7 @@
   </section>
 
   <!-- ===== Final CTA ===== -->
-  <section class="section">
+  <section class="section" id="join">
     <div class="container">
       <div class="final-cta fade-up">
         <span class="eyebrow">JOIN US</span>
@@ -495,5 +503,6 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/analytics.js"></script>
 </body>
 </html>
