@@ -1,5 +1,18 @@
 (function () {
-  if (typeof gtag !== 'function') return;
+  var hasGtag = typeof gtag === 'function';
+
+  function gc(vars, retries) {
+    if (window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count(vars);
+    } else if ((retries || 0) < 10) {
+      setTimeout(function () { gc(vars, (retries || 0) + 1); }, 300);
+    }
+  }
+
+  function track(gaName, gaParams, gcPath, gcTitle) {
+    if (hasGtag) gtag('event', gaName, gaParams);
+    gc({ path: gcPath, title: gcTitle, event: true });
+  }
 
   // ---- スクロール到達率 (25/50/75/90%) ----
   var scrollThresholds = [25, 50, 75, 90];
@@ -14,7 +27,7 @@
     scrollThresholds.forEach(function (t) {
       if (percent >= t && !scrollFired[t]) {
         scrollFired[t] = true;
-        gtag('event', 'scroll_depth', { percent: t });
+        track('scroll_depth', { percent: t }, 'scroll/' + t, t + '%スクロール');
       }
     });
   }
@@ -50,7 +63,7 @@
       var id = entry.target.id;
       if (entry.isIntersecting && !reached[id]) {
         reached[id] = true;
-        gtag('event', 'section_view', { section_id: id });
+        track('section_view', { section_id: id }, 'section-view/' + id, id + ' 到達');
       }
     });
   }, { threshold: 0 });
@@ -72,6 +85,13 @@
     timeObserver.observe(el);
   });
 
+  function secondsBucket(seconds) {
+    if (seconds < 10) return '0-10s';
+    if (seconds < 30) return '10-30s';
+    if (seconds < 60) return '30-60s';
+    return '60s+';
+  }
+
   function flushSectionTime() {
     sectionIds.forEach(function (id) {
       if (visibleSince[id]) {
@@ -80,7 +100,9 @@
       }
       var ms = totalVisibleMs[id];
       if (ms) {
-        gtag('event', 'section_time', { section_id: id, seconds: Math.round(ms / 1000), transport_type: 'beacon' });
+        var seconds = Math.round(ms / 1000);
+        if (hasGtag) gtag('event', 'section_time', { section_id: id, seconds: seconds, transport_type: 'beacon' });
+        gc({ path: 'section-time/' + id + '/' + secondsBucket(seconds), title: id + ' 滞在時間', event: true });
         totalVisibleMs[id] = 0;
       }
     });
@@ -112,6 +134,7 @@
       if (link.href.indexOf(key) !== -1) { type = FORM_TYPES[key]; break; }
     }
     if (!type) return;
-    gtag('event', 'cta_click', { cta_type: type, location: locationOf(link) });
+    var location = locationOf(link);
+    track('cta_click', { cta_type: type, location: location }, 'cta/' + type + '/' + location, type + 'クリック @ ' + location);
   });
 })();
