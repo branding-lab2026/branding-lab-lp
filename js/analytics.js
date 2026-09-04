@@ -137,4 +137,13 @@
     var location = locationOf(link);
     track('cta_click', { cta_type: type, location: location }, 'cta/' + type + '/' + location, type + 'クリック @ ' + location);
   });
+
+  // ---- ヘッダーナビゲーションのクリック ----
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest('[data-nav-links] a');
+    if (!link) return;
+    var target = (link.getAttribute('href') || '').replace('#', '') || 'unknown';
+    var label = (link.textContent || '').trim();
+    track('nav_click', { nav_target: target, nav_label: label }, 'nav/' + target, 'ヘッダー: ' + label);
+  });
 })();
