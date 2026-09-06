@@ -577,6 +577,8 @@ section[id] {
   display: block;
   margin-top: 2px;
   font-size: 10.5px;
+  line-height: 1.5;
+  min-height: 3em;
   opacity: 0.9;
 }
 
