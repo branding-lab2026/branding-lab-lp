@@ -931,6 +931,33 @@ section[id] {
   background: var(--color-border);
 }
 
+/* 02→03(交流会)への接続は破線にして、必須の連続ではなく
+   独立して参加できる分岐であることを視覚的に示す */
+.program-steps__item:nth-child(2)::before {
+  background: none;
+  border-left: 2px dashed var(--color-border);
+  width: 0;
+}
+
+.program-steps__badge {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-family: var(--font-base);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--color-urgent);
+  border: 1px solid var(--color-urgent);
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .program-steps__badge { display: block; margin: 8px 0 0; width: fit-content; }
+}
+
 .program-steps__tag {
   display: block;
   font-family: var(--font-base);
