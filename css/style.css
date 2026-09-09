@@ -1294,16 +1294,8 @@ section[id] {
   margin: 0 auto;
 }
 
-.voice-grid > div:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-  max-width: calc((900px - 40px) / 2);
-  width: 100%;
-  margin: 0 auto;
-}
-
 @media (max-width: 640px) {
   .voice-grid { grid-template-columns: 1fr; gap: 40px; }
-  .voice-grid > div:last-child:nth-child(odd) { max-width: none; }
 }
 
 /* ---------------- 講師紹介 ---------------- */
