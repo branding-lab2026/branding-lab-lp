@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://branding-lab2026.github.io/branding-lab-lp/sitemap.xml
