@@ -65,6 +65,30 @@ document.addEventListener("DOMContentLoaded", () => {
     targets.forEach((el) => observer.observe(el));
   }
 
+  // 申込締切までの残り日数(日本時間基準)。締切後はバッジごと非表示にする
+  const deadlineEls = document.querySelectorAll("[data-deadline-countdown]");
+  if (deadlineEls.length) {
+    const DEADLINE_END = Date.parse("2026-10-12T23:59:59+09:00");
+    const DEADLINE_DAY = Date.UTC(2026, 9, 12) / 86400000;
+    const nowMs = Date.now();
+    if (nowMs > DEADLINE_END) {
+      deadlineEls.forEach((el) => { el.style.display = "none"; });
+    } else {
+      const daysLeft = DEADLINE_DAY - Math.floor((nowMs + 9 * 3600 * 1000) / 86400000);
+      deadlineEls.forEach((el) => {
+        el.textContent = "";
+        if (daysLeft === 0) {
+          el.textContent = "本日締切！";
+          return;
+        }
+        const num = document.createElement("strong");
+        num.className = "deadline-text__count";
+        num.textContent = String(daysLeft);
+        el.append("締切まであと", num, "日");
+      });
+    }
+  }
+
   // 横スクロールエリアの矢印ボタン
   document.querySelectorAll("[data-scroll-prev], [data-scroll-next]").forEach((btn) => {
     const targetId = btn.dataset.scrollPrev || btn.dataset.scrollNext;
