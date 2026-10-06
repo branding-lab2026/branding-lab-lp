@@ -646,7 +646,7 @@ section[id] {
   display: inline-block;
   margin-top: 22px;
   font-family: var(--font-base);
-  font-size: 19.5px;
+  font-size: 17.2px;
   font-weight: 700;
   color: var(--color-ink);
   background: var(--color-gold-pale);
@@ -666,8 +666,7 @@ section[id] {
 }
 
 .hero__open {
-  display: block;
-  margin-top: 2px;
+  margin-left: 4px;
   font-size: 0.82em;
 }
 
